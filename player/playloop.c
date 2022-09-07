@@ -736,6 +736,8 @@ static void handle_update_cache(struct MPContext *mpctx)
 
     if (mpctx->paused_for_cache != need_wait) {
         mpctx->paused_for_cache = need_wait;
+        mpctx->opts->playback_speed = 1.0;
+        update_playback_speed(mpctx);
         update_internal_pause_state(mpctx);
         force_update = true;
         if (mpctx->paused_for_cache)
